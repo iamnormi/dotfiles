@@ -1,0 +1,66 @@
+#!/bin/sh
+
+u=$(xclip -out)
+echo $u
+echo -e "\e[1;31m|<<< Enter Your Choice >>>|\e[0m"
+echo -e "\e[1;32m    dl.aria2c \e[0m"
+echo -e "\e[1;32m    ch.YouTube-dl(yt-dlp)    \e[0m"
+echo -e "\e[1;32m    a.opus 160k \e[0m"
+echo -e "\e[1;32m    va.webm 144p \e[0m"
+echo -e "\e[1;32m    vb.webm 240p \e[0m"
+echo -e "\e[1;32m    vc.webm 360p \e[0m"
+echo -e "\e[1;32m    vd.webm 480p \e[0m"
+echo -e "\e[1;32m    ve.webm 720p \e[0m"
+echo -e "\e[1;32m    vf.webm 1080p \e[0m"
+echo -e "\e[1;32m    v6a.webm 720pp60 \e[0m"
+echo -e "\e[1;32m    v6b.webm 1080p60 \e[0m"
+echo -e "\e[1;31m3.exit    \e[0m"
+
+
+read choice
+case $choice in
+	ch)
+	#Choice matters
+	read format
+	yt-dlp -f $format --external-downloader aria2c $u
+	;;
+	va)
+	#webm 144p
+	yt-dlp -f 219+250 --external-downloader aria2c $u
+	;;
+	vb)
+	#webm 240p
+	yt-dlp -f 242+250 --external-downloader aria2c $u
+	;;
+	vc)
+	#webm 360p
+	yt-dlp -f 243+251 --external-downloader aria2c $u
+	;;
+	vd)
+	#webm 480p
+	yt-dlp -f 244+251 --external-downloader aria2c $u
+	;;
+	ve)
+	#webm 720p
+	yt-dlp -f 247+251 --external-downloader aria2c $u
+	;;
+	vf)
+	#webm 1080p 
+	yt-dlp -f 248+251 --external-downloader aria2c $u
+	;;
+	a)
+	#opus 160k
+	yt-dlp --extract-audio --audio-format opus --external-downloader aria2c $u
+	;;
+	v6a)
+	#webm 720p60
+	yt-dlp -f 302+251 --external-downloader aria2c $u
+	;;
+	v6b)
+	#webm 1080p60p
+	yt-dlp -f 303+251 --external-downloader aria2c $u
+	;;
+	dl)
+	aria2c -c --console-log-level=warn --summary-interval=0 --download-result=hide --http-accept-gzip=true --file-allocation=none -x16 -j16 -s16 --min-split-size 1M --header 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.19 Safari/537.36' --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' --header 'Accept-Language: en-us,en;q=0.5' --header 'Sec-Fetch-Mode: navigate' --check-certificate=true --remote-time=true --show-console-readout=true $u
+	;;
+esac	

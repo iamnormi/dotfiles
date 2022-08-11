@@ -1,0 +1,225 @@
+#!/bin/sh
+
+adb shell pm uninstall -k --user 0 com.tencent.soter.soterserver
+adb shell pm uninstall -k --user 0 com.android.egg
+adb shell pm uninstall -k  --user 0 com.android.bookmarkprovider
+adb shell pm uninstall -k --user 0 com.android.backupconfirm #For remote backup, brings up a dialog.
+adb shell pm uninstall -k --user 0 com.android.providers.partnerbookmarks #Same as "bookmarkprovider".
+adb shell pm uninstall -k --user 0 com.android.providers.partnerbookmarks #Same as "bookmarkprovider".
+adb shell pm uninstall -k --user 0 com.android.providers.userdictionary #Not needed for smartlock or google keyboard personal dictionary.
+adb shell pm uninstall -k --user 0 com.android.sharedstoragebackup #Linked to backup. Keep it if needed.
+adb shell pm uninstall -k --user 0 com.android.statementservice #Not much information, but works perfectly without it.
+adb shell pm uninstall -k --user 0 com.android.stk #SIM Application Toolkit, works perfectly without, for me.
+adb shell pm uninstall -k --user 0 com.android.wallpaperbackup #Relates to the wallpaper of the home page. Useless.
+
+#GoogleApps
+adb shell pm uninstall -k --user 0 com.google.android.youtube
+adb shell pm uninstall -k --user 0 com.android.chrome
+adb shell pm uninstall -k --user 0 com.google.android.apps.maps
+adb shell pm uninstall -k --user 0 com.android.vending
+adb shell pm uninstall -k --user 0 com.google.android.gms
+adb shell pm uninstall -k --user 0 com.google.android.gm
+adb shell pm uninstall -k --user 0 com.google.android.gsf
+adb shell pm uninstall -k --user 0 com.google.android.googlequicksearichbox
+adb shell pm uninstall -k --user 0 com.google.android.inputmethod.latin
+adb shell pm uninstall -k --user 0 com.google.android.syncadapters.contacts
+adb shell pm uninstall -k --user 0 com.google.android.gms.location.history
+adb shell pm uninstall -k --user 0 com.google.android.marvin.talkback
+adb shell pm uninstall -k --user 0 com.google.android.projection.gearhead
+adb shell pm uninstall -k --user 0 com.google.android.ext.services
+adb shell pm uninstall -k --user 0 com.google.android.apps.restore
+adb shell pm uninstall -k --user 0 com.google.android.setupwizard
+adb shell pm uninstall -k --user 0 com.google.android.ext.shared
+adb shell pm uninstall -k --user 0 com.google.ar.core
+adb shell pm uninstall -k --user 0 com.google.android.calendar
+adb shell pm uninstall -k --user 0 com.google.android.apps.restore #Useless after setup.
+adb shell pm uninstall -k --user 0 com.google.android.apps.tachyon #Google duo app.
+adb shell pm uninstall -k --user 0 com.google.android.apps.wellbeing #Useless.
+adb shell pm uninstall -k --user 0 com.google.android.feedback #Same.
+adb shell pm uninstall -k --user 0 com.google.android.googlequicksearchbox #Google search bar widget.
+adb shell pm uninstall -k --user 0 com.google.android.onetimeinitializer #Useless.
+adb shell pm uninstall -k --user 0 com.google.android.partnersetup #Same.
+adb shell pm uninstall -k --user 0 com.google.android.printservice.recommendation #Prints work without.
+adb shell pm uninstall -k --user 0 com.google.android.projection.gearhead #Android Auto app.
+adb shell pm uninstall -k --user 0 com.google.android.setupwizard #Useless after setup.
+adb shell pm uninstall -k --user 0 com.google.android.tag #Tap app, useless.
+adb shell pm uninstall -k --user 0 com.google.android.tts #TextToSpeech service.
+adb shell pm uninstall -k --user 0 com.google.ar.core #Keep it if you use VR.
+adb shell pm uninstall -k --user 0 com.google.android.keep #Google keep app, note.
+adb shell pm uninstall -k --user 0 com.google.android.apps.youtube.music #Google music app.
+adb shell pm uninstall -k --user 0 com.google.android.apps.magazines #Google actu app.
+adb shell pm uninstall -k --user 0 com.google.android.apps.photos #Google photo app.
+adb shell pm uninstall -k --user 0 com.google.android.calendar #Google calendar app.
+adb shell pm uninstall -k --user 0 com.google.android.videos #Google play film app.
+adb shell pm uninstall -k --user 0 com.google.android.apps.docs #Useless.
+adb shell pm uninstall -k --user 0 com.google.android.music #Not installed.
+# adb shell pm uninstall -k --user 0 com.google.android.modulemetadata #Can be uninstalled, however you will no longer be able to access to your installed apps in settings, and manage their options like data usage, wifi access, etc...
+adb shell pm uninstall -k --user 0 com.google.android.marvin.talkback #Keep it if you use it.
+adb shell pm uninstall -k --user 0 com.google.android.gmsintegration #Google location history service. GPS works without.
+adb shell pm uninstall -k --user 0 com.google.android.gms.location.history #Same.
+
+
+#OppoApps
+adb shell pm uninstall -k --user 0 com.coloros.oppomultiapp
+adb shell pm uninstall -k --user 0 com.coloros.gamespace
+adb shell pm uninstall -k --user 0 com.heytap.market
+adb shell pm uninstall -k --user 0 com.coloros.floatassistant
+adb shell pm uninstall -k --user 0 com.heytap.browser
+adb shell pm uninstall -k --user 0 com.coloros.athena
+adb shell pm uninstall -k --user 0 com.oppo.atlas
+adb shell pm uninstall -k --user 0 com.coloros.backuprestore.remoteservice
+adb shell pm uninstall -k --user 0 com.heytap.browser
+adb shell pm uninstall -k --user 0 com.coloros.calculator
+adb shell pm uninstall -k --user 0 com.coloros.video #Video app. Keep it if you use it, you will still be able to play videos without it.
+adb shell pm uninstall -k --user 0 com.coloros.pictorial #Not installed on my device. According to research, this is useless, can be removed without problems.
+adb shell pm uninstall -k --user 0 com.coloros.oppomultiapp #Application cloning will no longer be available.
+adb shell pm uninstall -k --user 0 com.coloros.activation #Useless.
+adb shell pm uninstall -k --user 0 com.coloros.activation.overlay.common #Useless too.
+adb shell pm uninstall -k --user 0 com.coloros.assistantscreen #Maybe linked to Google Assistant?
+#adb shell pm uninstall -k --user 0 com.coloros.athena #Some may have a problem with multitasking (when closing apps in background). Thanks to Ll0r3nt3.
+adb shell pm uninstall -k --user 0 com.coloros.backuprestore #Clone phone app, keep it if you need it.
+adb shell pm uninstall -k --user 0 com.coloros.backuprestore.remoteservice #Related to backup. Keep it if you need it.
+adb shell pm uninstall -k --user 0 com.coloros.bootreg #Useless.
+adb shell pm uninstall -k --user 0 com.coloros.childrenspace #Who uses it? No one...
+adb shell pm uninstall -k --user 0 com.coloros.cloud #Not installed on my device. I guess it's a realme cloud service.
+adb shell pm uninstall -k --user 0 com.coloros.compass2 #Compass app, keep if you use it.
+adb shell pm uninstall -k --user 0 com.coloros.deepthinker #Android works without.
+adb shell pm uninstall -k --user 0 com.coloros.encryption #Allows you to encrypt your applications.
+adb shell pm uninstall -k --user 0 com.coloros.favorite.overlay.common #Useless.
+adb shell pm uninstall -k --user 0 com.coloros.floatassistant #Useless, but keep it if you want.
+adb shell pm uninstall -k --user 0 com.coloros.focusmode #Keep it if you use it.
+adb shell pm uninstall -k --user 0 com.coloros.gamespace #Keep it if you want, but works without.
+adb shell pm uninstall -k --user 0 com.coloros.gamespaceui #Not installed on my device. Related to gamespace, keep it if you use it.
+adb shell pm uninstall -k --user 0 com.coloros.healthcheck #Healthcheck app.
+adb shell pm uninstall -k --user 0 com.coloros.locationproxy #Works without.
+adb shell pm uninstall -k --user 0 com.coloros.lockassistant #Works perfectly without.
+adb shell pm uninstall -k --user 0 com.coloros.ocrscanner #Not installed on my device. So it should work perfectly without.
+adb shell pm uninstall -k --user 0 com.coloros.ocrservice #The same. Works perfectly without.
+adb shell pm uninstall -k --user 0 com.coloros.ocs.opencapabilityservice #Works perfectly without.
+adb shell pm uninstall -k --user 0 com.coloros.onekeylockscreen #Not installed on my device. Should work perfectly without.
+adb shell pm uninstall -k --user 0 com.coloros.personalassistant.overlay.common #Google assistant works without.
+adb shell pm uninstall -k --user 0 com.coloros.phonemanager #Useless app. Keep it if you use it.
+adb shell pm uninstall -k --user 0 com.coloros.phonenoareainquire #Useless.
+adb shell pm uninstall -k --user 0 com.coloros.resmonitor #Not installed on my device, it works without.
+adb shell pm uninstall -k --user 0 com.coloros.sceneservice #Works very well without.
+adb shell pm uninstall -k --user 0 com.coloros.securepay #No problem without.
+adb shell pm uninstall -k --user 0 com.coloros.securitykeyboard #Useless, keyboard still works without.
+adb shell pm uninstall -k --user 0 com.coloros.smartdrive #Google drive works without it.
+adb shell pm uninstall -k --user 0 com.coloros.smartsidebar #Keep it if you use sidebar.
+adb shell pm uninstall -k --user 0 com.coloros.soundrecorder #Keep it if you want it.
+adb shell pm uninstall -k --user 0 com.coloros.speechassist #Not installed on my device, what is that?
+adb shell pm uninstall -k --user 0 com.coloros.translate.engine #Same.
+adb shell pm uninstall -k --user 0 com.coloros.video #Not installed on my device. You can watch videos in your gallery without.
+adb shell pm uninstall -k --user 0 com.coloros.wallet #Not installed on my device, probably a wallet app, keep it if needed.
+adb shell pm uninstall -k --user 0 com.coloros.weather.service #Meteo app works without it. (on my device)
+adb shell pm uninstall -k --user 0 com.coloros.weather2 #Meteo app, you can keep it if you use it.
+adb shell pm uninstall -k --user 0 com.coloros.widget.smallweather #Weather widgets.
+#adb shell pm uninstall -k --user 0 com.coloros.wifibackuprestore #To backup wifi.
+
+adb shell pm uninstall -k --user 0 com.oppo.ScoreAppMonitor #Not installed.
+adb shell pm uninstall -k --user 0 com.oppo.aod #Not installed.
+adb shell pm uninstall -k --user 0 com.oppo.atlas #IDK what is this. But it works without.
+adb shell pm uninstall -k --user 0 com.oppo.bttestmode #Same.
+adb shell pm uninstall -k --user 0 com.oppo.criticallog #Useless.
+adb shell pm uninstall -k --user 0 com.oppo.decrypt #Keep if you use crypt app.
+adb shell pm uninstall -k --user 0 com.oppo.engineermode #Useless.
+adb shell pm uninstall -k --user 0 com.oppo.engineermode.camera #Cam works without.
+adb shell pm uninstall -k --user 0 com.oppo.engineermode.network #Wifi works without.
+adb shell pm uninstall -k --user 0 com.oppo.fingerprints.finterprintsensortest #Not installed on my device.
+adb shell pm uninstall -k --user 0 com.oppo.gmail.overlay #Gmail works without.
+adb shell pm uninstall -k --user 0 com.oppo.locationpicker #Location works without.
+adb shell pm uninstall -k --user 0 com.oppo.logkit #Useless.
+adb shell pm uninstall -k --user 0 com.oppo.logkitservice #Not installed, but same.
+adb shell pm uninstall -k --user 0 com.oppo.mimosiso #IDK what is this, but looks useless.
+adb shell pm uninstall -k --user 0 com.oppo.music #Music app, keep if you use it, or download one instead.
+adb shell pm uninstall -k --user 0 com.oppo.nw #Useless.
+adb shell pm uninstall -k --user 0 com.oppo.market #Not installed.
+adb shell pm uninstall -k --user 0 com.oppo.operationManual #As you want, if you read it.
+adb shell pm uninstall -k --user 0 com.oppo.oppopowermonitor #Works without.
+adb shell pm uninstall -k --user 0 com.oppo.ovoicemanager #Not installed.
+adb shell pm uninstall -k --user 0 com.oppo.partnerbrowsercustomizations #Useless.
+adb shell pm uninstall -k --user 0 com.oppo.qualityprotect #Same.
+adb shell pm uninstall -k --user 0 com.oppo.quicksearchbox #Maybe it is a widget?
+adb shell pm uninstall -k --user 0 com.oppo.rftoolkit #Keep if needed.
+adb shell pm uninstall -k --user 0 com.oppo.sos #Keep it if you are alone.
+adb shell pm uninstall -k --user 0 com.oppo.startlogkit #Not installed.
+adb shell pm uninstall -k --user 0 com.oppo.tzupdate #Related to the time zone. Works without.
+adb shell pm uninstall -k --user 0 com.oppo.usageDump #Same.
+adb shell pm uninstall -k --user 0 com.oppo.usercenter #Same..
+adb shell pm uninstall -k --user 0 com.oppo.webview #Same...
+adb shell pm uninstall -k --user 0 com.oppo.wifirf #Wifi works without it!
+adb shell pm uninstall -k --user 0 com.oppo.wifisniffer #Wifi works perfectly without too.
+adb shell pm uninstall -k --user 0 com.oppoex.afterservice #Maybe about after sales service.
+adb shell pm uninstall -k --user 0 com.dolby.daxservice #Dolby Atmos works without.
+# adb shell pm uninstall -k --user 0 com.oppo.multimedia.dolby #Dolby app! Keep it if you use Dolby Atmos. The sound works without and the quality does not change.
+adb shell pm uninstall -k --user 0 com.dropboxchmod #Dropbox works without.
+adb shell pm uninstall -k --user 0 com.dsi.ant.server #Useless.
+adb shell pm uninstall -k --user 0 com.facebook.appmanager #Facebook bloatware.
+adb shell pm uninstall -k --user 0 com.facebook.katana #Facebook bloatware.
+adb shell pm uninstall -k --user 0 com.facebook.services #Facebook bloatware.
+adb shell pm uninstall -k --user 0 com.facebook.system #Facebook bloatware.
+adb shell pm uninstall -k --user 0 com.ted.number #Useless.
+adb shell pm uninstall -k --user 0 com.heytap.habit.analysis #Bloatware. Linked to HeyTap MCS.
+adb shell pm uninstall -k --user 0 com.heytap.openid #Service for HeyTap MCS.
+adb shell pm uninstall -k --user 0 com.heytap.browser #Not installed. Bloatware. Linked to HeyTap MCS.
+adb shell pm uninstall -k --user 0 com.heytap.colorfulengine #Service for HeyTap MCS.
+adb shell pm uninstall -k --user 0 com.heytap.datamigration #Service for HeyTap MCS.
+adb shell pm uninstall -k --user 0 com.heytap.mcs #Related to OPPO cloud service.
+adb shell pm uninstall -k --user 0 com.mediatek.omacp #Works without.
+adb shell pm uninstall -k --user 0 com.mobiletools.systemhelper #Not installed, could be bloat.
+adb shell pm uninstall -k --user 0 com.nearme.atlas #Useless.
+adb shell pm uninstall -k --user 0 com.nearme.instant.platform #Not installed. Same.
+adb shell pm uninstall -k --user 0 com.nearme.statistics.rom #Bloatware.
+adb shell pm uninstall -k --user 0 com.nearme.browser #Not installed. Same...
+adb shell pm uninstall -k --user 0 com.nearme.themestore #Not installed. Same....
+adb shell pm uninstall -k --user 0 com.qti.service.colorservice #Maybe related to theme, but it works without.
+adb shell pm uninstall -k --user 0 com.qti.xdivert #Useless bloat.
+adb shell pm uninstall -k --user 0 com.realme.logtool #Not installed.
+adb shell pm uninstall -k --user 0 com.realme.securitycheck #IDK but works without.
+adb shell pm uninstall -k --user 0 com.rongcard.eid #Useless.
+adb shell pm uninstall -k --user 0 com.tencent.soter.soterserver #Related to tencent games?
+adb shell pm uninstall -k --user 0 com.opera.browser #Keep it if you use it.
+adb shell pm uninstall -k --user 0 com.opera.preinstall #Opera should work without it.
+adb shell pm uninstall -k --user 0 org.kman.AquaMail #Keep if you it.
+
+
+
+
+adb shell pm disable-user --user 0 com.heytap.market
+adb shell pm disable-user --user 0 com.heytap.browser
+adb shell pm uninstall -k --user 0 com.coloros.alarmclock
+adb shell pm uninstall -k  --user 0 com.android.contacts
+adb shell pm uninstall -k --user 0 com.android.fmradio
+adb shell pm uninstall -k --user 0 com.android.mms
+adb shell pm disable-user --user 0 com.heytap.usercenter
+adb shell pm uninstall -k --user 0 com.coloros.gallery3d
+adb shell pm uninstall -k --user 0 com.android.incallui
+adb shell pm uninstall -k --user 0 com.coloros.oshare
+adb shell pm disable-user --user 0 com.heytap.themestore
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
