@@ -60,12 +60,18 @@ adb shell pm uninstall -k --user 0 com.google.android.gms.location.history #Same
 
 
 #OppoApps
+adb shell pm uninstall -k --user 0 com.heytap.pictorial
+adb shell pm uninstall -k --user 0 com.android.wallpaper.livepicker
+adb shell pm uninstall -k --user 0 com.oppo.music
+adb shell pm uninstall -k --user 0 com.coloros.gallery3d
+adb shell pm uninstall -k --user 0 com.oppo.ota
+adb shell pm uninstall -k --user 0 com.oppo.otaui
+adb shell pm uninstall -k --user 0 com.coloros.sau
 adb shell pm uninstall -k --user 0 com.coloros.oppomultiapp
 adb shell pm uninstall -k --user 0 com.coloros.gamespace
 adb shell pm uninstall -k --user 0 com.heytap.market
 adb shell pm uninstall -k --user 0 com.coloros.floatassistant
 adb shell pm uninstall -k --user 0 com.heytap.browser
-adb shell pm uninstall -k --user 0 com.coloros.athena
 adb shell pm uninstall -k --user 0 com.oppo.atlas
 adb shell pm uninstall -k --user 0 com.coloros.backuprestore.remoteservice
 adb shell pm uninstall -k --user 0 com.heytap.browser
