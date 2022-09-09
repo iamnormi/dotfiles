@@ -35,7 +35,7 @@ fi
 alias ftp="python3 -m pyftpdlib"
 alias fs="python3 -m http.server"
 alias cfx="sudo ntpd -qg ; sudo hwclock --systohc" #To Fix the Clock f**ked by windows 
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+#alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 
 #export CLASSPATH="/usr/share/java/mariadb-jdbc/mariadb-java-client.jar:/media/i437k/LinuxDisk/root/Tomcat/apache-tomcat-10.0.20/lib/servlet-api.jar:/media/i437k/LinuxDisk/root/Tomcat/apache-tomcat-10.0.20/lib/mysql-connector.jar"
