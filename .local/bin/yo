@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 u=$(xclip -out)
 echo $u
@@ -14,13 +14,16 @@ echo -e "\e[1;32m    ve.webm 720p \e[0m"
 echo -e "\e[1;32m    vf.webm 1080p \e[0m"
 echo -e "\e[1;32m    v6a.webm 720pp60 \e[0m"
 echo -e "\e[1;32m    v6b.webm 1080p60 \e[0m"
+echo -e "\e[1;32m    g.gdl (aria2c)   \e[0m"
 echo -e "\e[1;31m3.exit    \e[0m"
+
 
 
 read choice
 case $choice in
 	ch)
 	#Choice matters
+	yt-dlp -F $u
 	read format
 	yt-dlp -f $format --external-downloader aria2c $u
 	;;
@@ -62,5 +65,8 @@ case $choice in
 	;;
 	dl)
 	aria2c -c --console-log-level=warn --summary-interval=0 --download-result=hide --http-accept-gzip=true --file-allocation=none -x16 -j16 -s16 --min-split-size 1M --header 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.19 Safari/537.36' --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' --header 'Accept-Language: en-us,en;q=0.5' --header 'Sec-Fetch-Mode: navigate' --check-certificate=true --remote-time=true --show-console-readout=true $u
+	;;
+	g)
+	gdl --aria-flags "-c --console-log-level=warn --summary-interval=0 --download-result=hide --http-accept-gzip=true --file-allocation=none -x16 -j16 -s16" $u
 	;;
 esac	
