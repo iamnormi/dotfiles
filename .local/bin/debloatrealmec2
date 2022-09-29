@@ -6,7 +6,7 @@ adb shell pm uninstall -k  --user 0 com.android.bookmarkprovider
 adb shell pm uninstall -k --user 0 com.android.backupconfirm #For remote backup, brings up a dialog.
 adb shell pm uninstall -k --user 0 com.android.providers.partnerbookmarks #Same as "bookmarkprovider".
 adb shell pm uninstall -k --user 0 com.android.providers.partnerbookmarks #Same as "bookmarkprovider".
-adb shell pm uninstall -k --user 0 com.android.providers.userdictionary #Not needed for smartlock or google keyboard personal dictionary.
+#adb shell pm uninstall -k --user 0 com.android.providers.userdictionary #Not needed for smartlock or google keyboard personal dictionary.
 adb shell pm uninstall -k --user 0 com.android.sharedstoragebackup #Linked to backup. Keep it if needed.
 adb shell pm uninstall -k --user 0 com.android.statementservice #Not much information, but works perfectly without it.
 adb shell pm uninstall -k --user 0 com.android.stk #SIM Application Toolkit, works perfectly without, for me.
