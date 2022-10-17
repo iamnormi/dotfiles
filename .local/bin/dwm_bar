@@ -42,7 +42,7 @@ update_cpu () {
 # We have to run this only once.
 
 display () { 
-	xsetroot -name "[  $memory ] [ $vol ] $time [$bat]"
+	xsetroot -name "[  $memory ] [ $vol ] $time [ $bat ]"
 }
 
 # Handling receiving signal
