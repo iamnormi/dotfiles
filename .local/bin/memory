@@ -1,4 +1,0 @@
-#!/bin/sh
-
-mem="$(free -h | sed -n "2s/\([^ ]* *\)\{2\}\([^ ]*\).*/\2/p")"
-printf "M:$mem"
