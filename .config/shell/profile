@@ -1,0 +1,18 @@
+#!/bin/sh
+
+export EDITOR="vim"
+export TERMINAL="st"
+export BROWSER="librewolf"
+
+export LIBVA_DRIVER_NAME=iHD
+export MOZ_DISABLE_RDD_SANDBOX=1
+export MOZ_X11_EGL=1
+export MOZ_ENABLE_WAYLAND=1
+export QT_QPA_PLATFORMTHEME=qt5ct
+
+
+dwm_bar &
+unclutter &
+sxhkd &
+xwallpaper --zoom ~/pix/wall/arch.png
+
