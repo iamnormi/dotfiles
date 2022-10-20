@@ -68,7 +68,7 @@ case $choice in
 	aria2c -c --console-log-level=warn --summary-interval=0 --download-result=hide --http-accept-gzip=true --file-allocation=none -x16 -j16 -s16 --min-split-size 1M --header 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.19 Safari/537.36' --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' --header 'Accept-Language: en-us,en;q=0.5' --header 'Sec-Fetch-Mode: navigate' --check-certificate=true --remote-time=true --show-console-readout=true $u
 	;;
 	g)
-	gdl --aria-flags "-c --console-log-level=warn --summary-interval=0 --download-result=hide --http-accept-gzip=true --file-allocation=none -x16 -j16 -s16" $u
+	gdl -o --aria-flags "-c --console-log-level=warn --summary-interval=0 --download-result=hide --http-accept-gzip=true --file-allocation=none -x16 -j16 -s16" $u
 	;;
 	pda)
 	yt-dlp --extract-audio --audio-format opus --output '%(playlist)s/%(playlist_index)s- %(title)s.%(ext)s' --external-downloader aria2c $u
