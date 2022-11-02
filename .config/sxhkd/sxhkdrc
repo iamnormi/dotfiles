@@ -10,11 +10,13 @@ XF86Audio{RaiseVolume,LowerVolume,Mute}
 	pamixer -{i,d,t} 2 ;
 
 XF86MonBrightness{Up,Down}
-	brightnessctl s {+2%,2%-}
+	brightnessctl s {+1%,1%-}
 
 super + Escape
 	system_action
-super + x
-	rofi -show drun
-super + shift + x
-	rofi -show run
+
+super + b
+    bkthis
+
+super + shift + b
+     xdotool type $(grep -v '^#' ~/.local/share/files/bookmarks | dmenu -i -l 50 | cut -d' ' -f1)
