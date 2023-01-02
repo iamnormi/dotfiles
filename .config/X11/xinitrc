@@ -1,0 +1,9 @@
+#!/bin/sh
+
+dwm_bar &
+dunst &
+xset r rate 300 50 &
+sxhkd &
+unclutter &
+
+exec dwm > /dev/null 2>&1
