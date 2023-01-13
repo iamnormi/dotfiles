@@ -1,6 +1,6 @@
 #!/bin/bash
 
-u=$(xclip -out)
+u=$(xclip -o)
 echo $u
 echo -e "\e[1;31m|<<< Enter Your Choice >>>|\e[0m"
 echo -e "\e[1;32m    dl.aria2c \e[0m"
@@ -16,6 +16,7 @@ echo -e "\e[1;32m    v6a.webm 720pp60 \e[0m"
 echo -e "\e[1;32m    v6b.webm 1080p60 \e[0m"
 echo -e "\e[1;32m    g.gdl (aria2c)   \e[0m"
 echo -e "\e[1;32m    pda.Download playlist (audio)   \e[0m"
+echo -e "\e[1;32m    pd.podcast downloader (aria2c) name url (as arguments)  \e[0m"
 echo -e "\e[1;31m3.exit    \e[0m"
 
 
@@ -73,4 +74,7 @@ case $choice in
 	pda)
 	yt-dlp --extract-audio --audio-format opus --output '%(playlist)s/%(playlist_index)s- %(title)s.%(ext)s' --external-downloader aria2c $u
 	;;
+    pd)
+    echo "Downloading as $1"
+    aria2c -c --console-log-level=warn --summary-interval=0 --download-result=hide --http-accept-gzip=true --file-allocation=none -x16 -j16 -s16 -o "$1" "$2" 
 esac	
