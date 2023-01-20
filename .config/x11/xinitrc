@@ -1,9 +1,19 @@
 #!/bin/sh
 
+export EDITOR="vim"
+export TERMINAL="st"
+export BROWSER="firefox"
+
+export LIBVA_DRIVER_NAME=iHD
+export MOZ_DISABLE_RDD_SANDBOX=1
+export MOZ_X11_EGL=1
+export MOZ_ENABLE_WAYLAND=1
+export QT_QPA_PLATFORMTHEME=qt5ct
+
+xset r rate 300 50 &
 dwm_bar &
 dunst &
-xset r rate 300 50 &
-sxhkd &
 unclutter &
-xwallpaper --zoom  /usr/share/backgrounds/arch.png
-exec dwm > /dev/null 2>&1
+sxhkd &
+xwallpaper --zoom ~/pix/wall/arch.png
+exec dwm
