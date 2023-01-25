@@ -1,13 +1,13 @@
 -- various audio visualization
 
 local opts = {
-    mode = "novideo",
+    mode = "off",
     -- off              disable visualization
     -- noalbumart       enable visualization when no albumart and no video
     -- novideo          enable visualization when no video
     -- force            always enable visualization
 
-    name = "showcqt",
+    name = "showcqtbar",
     -- off
     -- showcqt
     -- avectorscope
