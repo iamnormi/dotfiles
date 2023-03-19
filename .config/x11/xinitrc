@@ -9,11 +9,25 @@ export MOZ_DISABLE_RDD_SANDBOX=1
 export MOZ_X11_EGL=1
 export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_X11_NO_MITSHM=1
 
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+sudo virsh net-start default &
 xset r rate 300 50 &
 dwm_bar &
 dunst &
 unclutter &
 sxhkd &
 xwallpaper --zoom ~/pix/wall/arch.png
+xcompmgr &
 exec dwm
+
+#xrandr --output HDMI1 --mode 640x480 --output eDP-1 --mode 1920x1080 --left-of HDMI1 &
+#xwallpaper --zoom ~/pix/wall/arch.png
+#exec startxfce4
+
