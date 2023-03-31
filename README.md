@@ -1,5 +1,5 @@
 # dotfiles
-.config I Configured Myself in my linux Machine.
+Configs of my Arch Linux.
 
 ## Dev = 1'43
 These dotfiles was maintained by [**1437k**](https://github.com/iamvk1437k).
