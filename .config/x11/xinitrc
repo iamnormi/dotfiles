@@ -4,6 +4,7 @@ export EDITOR="vim"
 export TERMINAL="st"
 export BROWSER="firefox"
 
+export VDPAU_DRIVER=va_gl
 export LIBVA_DRIVER_NAME=iHD
 #export MOZ_DISABLE_RDD_SANDBOX=1
 #export MOZ_X11_EGL=1
