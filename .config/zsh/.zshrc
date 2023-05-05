@@ -31,8 +31,8 @@ alias ftps="python3 -m pyftpdlib"
 alias fs="python3 -m http.server"
 alias cfx="sudo ntpd -qg ; sudo hwclock --systohc" #To Fix the Clock f**ked by windows 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias cp="/usr/local/bin/advcp -g"
-alias mv="/usr/local/bin/advmv -g"
+#alias cp="/usr/local/bin/advcp -g"
+#alias mv="/usr/local/bin/advmv -g"
 alias ff="ffmpeg"
 alias ytbdl="youtube-dl -f bestvideo+bestaudio -o '%(title)s.%(ext)s' --external-downloader=aria2c"
 alias ytadl="youtube-dl -x -f bestaudio -o '%(title)s.%(ext)s' --external-downloader=aria2c"
@@ -45,6 +45,6 @@ alias sf="xrandr --output HDMI1 --mode 640x480 --output eDP1 --mode 1920x1080 --
 
 #export LIBVA_DRIVERS_PATH=/usr/lib/dri/iHD_drv_video.so
 #export VDPAU_DRIVER=va_gl
-export LIBVA_DRIVER_NAME=iHD
-export QT_QPA_PLATFORMTHEME=qt5ct
+#export LIBVA_DRIVER_NAME=iHD
+#export QT_QPA_PLATFORMTHEME=qt5ct
 PATH="${HOME}/.gdrive-downloader:${PATH}"
