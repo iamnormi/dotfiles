@@ -37,12 +37,20 @@ update_vol () {
 }
 
 update_cpu () {
-	cpu=$(top -bn1 | grep Cpu | awk '{print $2}')%	
+	cpu=$(top -bn1 | grep "Cpu(s)" | awk '{print $2}' | sed 's/%us//')%	
 }
+update_cpufreq (){
+	cpufq="$(awk -F: '/MHz/ {sum += $2; count++} END {if (count > 0) printf "%.2f\n", sum / (count * 1000)}' /proc/cpuinfo) GHz"
+}
+
 # We have to run this only once.
 
 display () { 
-	xsetroot -name "[  $memory ] [ $vol ] $time [ $bat ]"
+	xsetroot -name "[  $cpufq ] [ $cpuf ][  $memory ] [ $vol ] $time [ $bat ]"
+}
+
+update_cpu_fan (){
+	cpuf=$(sensors | grep cpu_fan | awk '{print $2}')
 }
 
 # Handling receiving signal
@@ -62,8 +70,11 @@ do
 		[ $((sec % 15)) -eq 0 ] && update_memory
 		[ $((sec % 5 )) -eq 0 ] && update_vol
                 [ $((sec % 5 )) -eq 0 ] && update_bat
+		[ $((sec % 5 )) -eq 0 ] && update_cpu_fan
+		[ $((sec % 5 )) -eq 0 ] && update_cpufreq
 		# how often the display updates ( 5 seconds )
 		[ $((sec % 5 )) -eq 0 ] && display
+
 		sec=$((sec + 1))
 	}
-done 
+done

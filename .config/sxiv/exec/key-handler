@@ -1,0 +1,50 @@
+#!/bin/sh
+# to test:
+# ./path/to/keyhandler "C-m" < foo.txt
+# where foo.txt is a file with name for each photo file per line.
+if [[ $1 == "C-m" ]]
+then
+   dirpath=$HOME/
+   while [[ "$dirpath" != *\.\/ ]]
+   do
+       echo "dirpath is: $dirpath"
+       chunk="`ls -pa $dirpath | grep / | dmenu -i -l 8 -p "$dirpath:"`"
+       echo "current chunk is: $chunk"
+       if [[ $chunk == './' ]]; then
+           break
+       elif [[ $chunk == '../' ]]; then
+           parentdir=`dirname $dirpath`
+           dirpath=`realpath $parentdir`
+           dirpath=$dirpath/
+       elif [[ -n $chunk ]]; then
+           dirpath="$dirpath$chunk"
+           echo "yup, folder is existing, updated dirpath: $dirpath"
+       else
+           echo "folder selection interrupted, exiting program..."
+           exit 0
+       fi
+   done
+   printf "\ndest folder is $dirpath\n\n"
+fi
+
+
+while read file
+do
+    echo "file: $file"
+    case "$1" in
+        "C-d")
+              mv "$file" ~/.trash ;;
+        "C-r")
+            convert -rotate 90 "$file" "$file" ;;
+        "C-c")
+            echo -n "$file" | xclip -selection clipboard ;;
+        "C-t")
+            echo "$file" ;;
+        "C-m")
+            mv "$file" $dirpath ;;
+        "C-w")
+            nitrogen --save --set-zoom-fill "$file" ;;
+        *)
+            echo "not yet implemented: $1" ;;
+    esac
+done
