@@ -43,15 +43,38 @@ update_cpufreq (){
 	cpufq="$(awk -F: '/MHz/ {sum += $2; count++} END {if (count > 0) printf "%.2f\n", sum / (count * 1000)}' /proc/cpuinfo) GHz"
 }
 
-# We have to run this only once.
-
-display () { 
-	xsetroot -name "[  $cpufq ] [ $cpuf ][  $memory ] [ $vol ] $time [ $bat ]"
-}
-
 update_cpu_fan (){
 	cpuf=$(sensors | grep cpu_fan | awk '{print $2}')
 }
+
+update_nrltsp(){
+	update() {
+    		sum=0
+    		for arg; do
+        		read -r i < "$arg"
+        		sum=$(( sum + i ))
+    		done
+    		cache=/tmp/${1##*/}
+    		[ -f "$cache" ] && read -r old < "$cache" || old=0
+    		printf %d\\n "$sum" > "$cache"
+    		printf %d\\n $(( sum - old ))
+}
+
+rx=$(update /sys/class/net/[ew]*/statistics/rx_bytes)
+tx=$(update /sys/class/net/[ew]*/statistics/tx_bytes)
+
+nrltsp=$(printf "%4sB %4sB\\n" $(numfmt --to=iec $rx $tx))
+
+}
+# We have to run this only once.
+
+display () { 
+	xsetroot -name "[ $nrltsp  ] [  $cpufq ] [ $cpuf ][  $memory ] [ $vol ] $time [ $bat ]"
+}
+
+
+
+
 
 # Handling receiving signal
 # RTMIN = 34 (always)
@@ -66,6 +89,7 @@ do
   wait && { 
 		# to update item ever n seconds with a offset of m
 		## [ $((sec % n)) -eq m ] && udpate_item
+		[ $((sec % 1 )) -eq 0 ] && update_nrltsp
 		[ $((sec % 5 )) -eq 0 ] && update_time
 		[ $((sec % 15)) -eq 0 ] && update_memory
 		[ $((sec % 5 )) -eq 0 ] && update_vol
