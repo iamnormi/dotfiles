@@ -18,17 +18,17 @@ export XDG_CACHE_HOME="$HOME/.cache"
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-sudo virsh net-start default &
-xset r rate 300 50 &
-dwm_bar &
-dunst &
+#sudo virsh net-start default &
+#xset r rate 300 50 &
+#dwm_bar &
+#dunst &
 #unclutter &
-sxhkd &
-xwallpaper --zoom pix/ss/1763622050.jpg
+#sxhkd &
+#xwallpaper --zoom pix/ss/1763622050.jpg
 #xwallpaper --zoom ~/pix/wall/arch.png
-xcompmgr &
-#nm-applet &
-exec dwm
+#xcompmgr &
+nm-applet &
+exec awesome
 #exec dwm_systray
 #xrandr --output HDMI1 --mode 640x480 --output eDP-1 --mode 1920x1080 --left-of HDMI1 &
 #xwallpaper --zoom ~/pix/wall/arch.png
