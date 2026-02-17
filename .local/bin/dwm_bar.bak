@@ -9,7 +9,7 @@ update_memory () {
 }
 
 update_time () { 
-	time="$(date "+ %a %d %b |  %I:%M %P")" 
+	time="$(date "+[  %a %d %b ] [  %I:%M %P ]")" 
 }
 
 update_bat () { 
@@ -69,7 +69,7 @@ nrltsp=$(printf "%4sB %4sB\\n" $(numfmt --to=iec $rx $tx))
 # We have to run this only once.
 
 display () { 
-	xsetroot -name "| $nrltsp |  $cpufq |  $cpuf |  $memory | $vol | $time | $bat |"
+	xsetroot -name "[ $nrltsp  ] [  $cpufq ] [ $cpuf ][  $memory ] [ $vol ] $time [ $bat ]"
 }
 
 
