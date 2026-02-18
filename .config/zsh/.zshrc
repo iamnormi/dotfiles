@@ -41,6 +41,7 @@ alias ytpdl="youtube-dl -f best -o '%(playlist_index)s. %(title)s.%(ext)s' --ext
 alias hst="history 1 -1 | cut -c 8- | sort | uniq | fzf | tr -d '\n' | xclip -sel c"
 alias gdlo="gdl -o  --aria-flags '-c --console-log-level=warn --summary-interval=0 --download-result=hide --http-accept-gzip=true --file-allocation=none -x16 -j16 -s16' "
 alias sf="xrandr --output HDMI1 --mode 640x480 --output eDP1 --mode 1920x1080 --left-of HDMI1 ; xwallpaper --zoom ~/pix/wall/arch.png"
+alias ardl="aria2c -c --console-log-level=warn --summary-interval=0 --download-result=hide --http-accept-gzip=true --file-allocation=none -x16 -j16 -s16 --min-split-size 1M --header 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.19 Safari/537.36' --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' --header 'Accept-Language: en-us,en;q=0.5' --header 'Sec-Fetch-Mode: navigate' --check-certificate=true --remote-time=true --show-console-readout=true "
 #export CLASSPATH="/usr/share/java/mariadb-jdbc/mariadb-java-client.jar:/media/i437k/LinuxDisk/root/Tomcat/apache-tomcat-10.0.20/lib/servlet-api.jar:/media/i437k/LinuxDisk/root/Tomcat/apache-tomcat-10.0.20/lib/mysql-connector.jar"
 
 #export LIBVA_DRIVERS_PATH=/usr/lib/dri/iHD_drv_video.so
