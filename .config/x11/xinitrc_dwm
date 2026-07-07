@@ -1,5 +1,34 @@
 #!/bin/sh
 
+# Source system xinitrc scripts (keyboard, dbus, etc.)
+if [ -d /etc/X11/xinit/xinitrc.d ]; then
+    for f in /etc/X11/xinit/xinitrc.d/?*.sh; do
+        [ -x "$f" ] && . "$f"
+    done
+    unset f
+fi
+
+# Start D-Bus session if not already running
+if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
+    eval "$(dbus-launch --sh-syntax --exit-with-session)"
+fi
+
+# Export for child processes
+export DBUS_SESSION_BUS_ADDRESS
+export DBUS_SESSION_BUS_PID
+
+# XDG dirs
+export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/tmp/xdg-runtime-$(id -u)}"
+mkdir -p "$XDG_RUNTIME_DIR"
+chmod 0700 "$XDG_RUNTIME_DIR"
+
+# gvfs virtual filesystem daemon
+/usr/lib/gvfsd &
+/usr/lib/gvfsd-fuse "$XDG_RUNTIME_DIR/gvfs" -f &
+
+# Polkit authentication agent (needed for mounting, admin actions)
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
 export EDITOR="vim"
 export TERMINAL="st"
 export BROWSER="firefox"
@@ -28,7 +57,11 @@ xwallpaper --zoom pix/ss/1763622050.jpg
 #xwallpaper --zoom ~/pix/wall/arch.png
 xcompmgr &
 #nm-applet &
-exec dwm
+
+# Start dwm (with dbus-launch wrapping the session)
+exec dbus-launch --exit-with-session dwm
+
+#exec dwm
 #exec dwm_systray
 #xrandr --output HDMI1 --mode 640x480 --output eDP-1 --mode 1920x1080 --left-of HDMI1 &
 #xwallpaper --zoom ~/pix/wall/arch.png
